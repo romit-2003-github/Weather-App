@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" href="#">Weather App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-light active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled text-light">User Guide</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" id="searchTxt" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light" id="searchBtn" onclick="searchCity(); return false;" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    <h1 class="headings text-center">Weather for <span id="cityName"></span></h1>
+
+    <div class="container">
+
+        <div class="card">
+            <h5 class="card-title text-center">Temperatures</h5>
+            <h1 class="text-center my-5"><span class="text-center" id="temp2"></span><span class="text-center text-muted">&#8451;</span></h1>
+            <div class="card-body">               
+                <ul class="details fs-4 my-1">
+                    <li>Temperature is <span id="temp"></span></li>
+                    <li>Min Temp is <span id="min_temp"></span></li>
+                    <li> Max Temp is <span id="max_temp"></span></li>
+                </ul>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+        </div>
+
+        <div class="card">
+            <h5 class="card-title">Humidity Info</h5>
+            <h1 class="text-center my-5"><span class="text-center" id="humidity2"></span><span class="text-center text-muted"> %</span></h1>
+            <div class="card-body">             
+                <ul class="details fs-4 my-1">
+                    <li>Cloud PCT is <span id="cloud_pct"></span></li>
+                    <li>Feels like <span id="feels_like"></span></li>
+                    <li>Humidity is <span id="humidity"></span></li>
+                </ul>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+        </div>
+
+        <div class="card">
+            <h5 class="card-title">Wind Info</h5>
+            <h1 class="text-center my-5"><span class="text-center" id="wind_speed"></span><span class="text-center text-muted"> km/hr</span></h1>
+            <div class="card-body">      
+                <ul class="details fs-4 my-1">
+                    <li>Wind Degrees is <span id="wind_degrees"></span></li>
+                    <li>Sunrise at <span id="sunrise"></span></li>
+                    <li>Sunset at <span id="sunset"></span></li>
+                </ul>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+        </div>
+
+    </div>
+
+    <h2 class="headings display-6 text-center ">Weather details for some common cities</h2>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">CITIES</th>
+            <th scope="col">Temp</th>
+            <th scope="col">feels_like</th>
+            <th scope="col">Humidity</th>
+            <th scope="col">max_temp</th>
+            <th scope="col">min_temp</th>
+            <th scope="col">sunrise</th>
+            <th scope="col">sunset</th>
+            <th scope="col">cloud_pct</th>
+            <th scope="col">wind_degrees</th>
+            <th scope="col">wind_speed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bengaluru</td>
+            <td id="tempbng"></td>
+            <td id="feels_likebng"></td>
+            <td id="humiditybng"></td>
+            <td id="max_tempbng"></td>
+            <td id="min_tempbng"></td>
+            <td id="sunrisebng"></td>
+            <td id="sunsetbng"></td>
+            <td id="cloud_pctbng"></td>
+            <td id="wind_degreesbng"></td>
+            <td id="wind_speedbng"></td>
+          </tr>
+          <tr>
+            <td>Chennai</td>
+            <td id="tempche"></td>
+            <td id="feels_likeche"></td>
+            <td id="humidityche"></td>
+            <td id="max_tempche"></td>
+            <td id="min_tempche"></td>
+            <td id="sunriseche"></td>
+            <td id="sunsetche"></td>
+            <td id="cloud_pctche"></td>
+            <td id="wind_degreesche"></td>
+            <td id="wind_speedche"></td>
+          </tr>
+          <tr>
+            <td>Mumbai</td>
+            <td id="tempmum"></td>
+            <td id="feels_likemum"></td>
+            <td id="humiditymum"></td>
+            <td id="max_tempmum"></td>
+            <td id="min_tempmum"></td>
+            <td id="sunrisemum"></td>
+            <td id="sunsetmum"></td>
+            <td id="cloud_pctmum"></td>
+            <td id="wind_degreesmum"></td>
+            <td id="wind_speedmum"></td>
+          </tr>
+          <tr>
+            <td>kolkata</td>
+            <td id="tempkol"></td>
+            <td id="feels_likekol"></td>
+            <td id="humiditykol"></td>
+            <td id="max_tempkol"></td>
+            <td id="min_tempkol"></td>
+            <td id="sunrisekol"></td>
+            <td id="sunsetkol"></td>
+            <td id="cloud_pctkol"></td>
+            <td id="wind_degreeskol"></td>
+            <td id="wind_speedkol"></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
